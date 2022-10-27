@@ -1,0 +1,10 @@
+.numbers {
+    display: grid;
+    grid-template-columns: repeat(3, 10rem);
+}
+
+.container-display {
+    grid-column-start: span 3;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
