@@ -1,24 +1,22 @@
 
 const displayEl = document.getElementById('display-el');
 
-const operators = ["add", "subtract"];
-
 let reset = false;
 clear();
-const buttons = document.querySelectorAll("button");
 
+const buttons = document.querySelectorAll("button");
 buttons.forEach(b => {
     b.addEventListener('click', hanldeButtionClick);
 });
 
-//ToDO: substraction works fine
-//TODO: multiplication to do
+//ToDO: division works fine
+//TODO: multiple operators need to be handled.
 function hanldeButtionClick(event) {
     const btn = event.target;
     const selectedNum = btn.value;
 
     if (selectedNum === "=") {
-        doCalculation(calculatedValue);
+        doCalculation(displayEl.value);
         reset = true;
         return;
     }
@@ -26,8 +24,8 @@ function hanldeButtionClick(event) {
     if (reset) {
         clear();
     }
-    
-    calculatedValue = calculatedValue === '0' ? btn.value : calculatedValue + btn.value;
+
+    displayEl.value = displayEl.value === '0' ? btn.value : displayEl.value + btn.value;
 }
 
 function doCalculation(value) {
@@ -43,6 +41,10 @@ function doCalculation(value) {
     else if (value.includes('*')) {
         operator = '*'
     }
+    else if (value.includes('/')) {
+        operator = '/'
+    }
+    //finally, do the actual calculation
     operate(convertToNumber(numbers[0]), convertToNumber(numbers[1]), operator);
 }
 
@@ -57,6 +59,9 @@ function operate(num1, num2, operator) {
             break;
         case "*":
             calculatedValue = num1 * num2;
+            break;
+        case "/":
+            calculatedValue = num1 / num2;
             break;
         default:
             calculatedValue = 0; //what to do here?
@@ -76,7 +81,7 @@ function convertToNumber(numAsString) {
 
 function clear() {
     reset = false;
-    calculatedValue = '0';
+    displayEl.value = '0';
 }
 
 //rounds decimals to two
