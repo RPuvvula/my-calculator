@@ -30,7 +30,6 @@ function hanldeButtionClick(event) {
 function doCalculation(value) {
     let totalValue = 0;
     let operator = '';
-    console.log('symbols', splitSymbols2(value));
 
     //loop thru each number and operator and calculate totals
     splitSymbols2(value).forEach((element) => {
