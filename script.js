@@ -9,8 +9,7 @@ buttons.forEach(b => {
     b.addEventListener('click', hanldeButtionClick);
 });
 
-//ToDO: division works fine
-//TODO: multiple operators need to be handled.
+//TODO: multiple operators are done. needs bit of testing
 function hanldeButtionClick(event) {
     const btn = event.target;
     const selectedNum = btn.value;
@@ -29,23 +28,33 @@ function hanldeButtionClick(event) {
 }
 
 function doCalculation(value) {
-    const numbers = chunkString(value);
-    console.log(numbers);
-    if (numbers.length < 2) {
-        return;
+    let totalValue = 0;
+    let operator = '';
+    console.log('symbols', splitSymbols2(value));
+
+    //loop thru each number and operator and calculate totals
+    splitSymbols2(value).forEach((element) => {
+        //check if it's operator first
+        if (isNaN(Number(element))) {
+            operator = element;
+        }
+        else {
+            totalValue = operate((operator === '' ? 1 : totalValue)
+                , convertToNumber(element)
+                , (operator !== '' ? operator : '*'));
+
+            operator = ''; //reset
+        }
+    });
+
+    displayEl.value = totalValue;
+    console.log(value, 'total value', totalValue);
+
+    //split the string by symbols and also includes symbols
+    //Example: This entry "14+2-1" returns ['14', '+', '2', '-', '1']
+    function splitSymbols2(displayValue) {
+        return displayValue.split(/([/\/*+-])/);
     }
-    let operator = '+';
-    if (value.includes('-')) {
-        operator = '-'
-    }
-    else if (value.includes('*')) {
-        operator = '*'
-    }
-    else if (value.includes('/')) {
-        operator = '/'
-    }
-    //finally, do the actual calculation
-    operate(convertToNumber(numbers[0]), convertToNumber(numbers[1]), operator);
 }
 
 function operate(num1, num2, operator) {
@@ -67,11 +76,7 @@ function operate(num1, num2, operator) {
             calculatedValue = 0; //what to do here?
             break;
     }
-    displayEl.value = roundDecimals(calculatedValue);
-}
-
-function chunkString(displayValue) {
-    return displayValue.split(/\+|\-|\*|\/|\=/);
+    return roundDecimals(calculatedValue);
 }
 
 function convertToNumber(numAsString) {
