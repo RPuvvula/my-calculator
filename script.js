@@ -30,7 +30,6 @@ function hanldeButtionClick(event) {
 function doCalculation(value) {
     let totalValue = 0;
     let operator = '';
-
     //loop thru each number and operator and calculate totals
     splitSymbols2(value).forEach((element) => {
         //check if it's operator first
@@ -52,7 +51,9 @@ function doCalculation(value) {
     //split the string by symbols and also includes symbols
     //Example: This entry "14+2-1" returns ['14', '+', '2', '-', '1']
     function splitSymbols2(displayValue) {
-        return displayValue.split(/([/\/*+-])/);
+        return displayValue.split(new RegExp('([/*+-])'));
+        //alternate approach but above looks easier to follow for me, no confusing escape chars
+        //return displayValue.split(/([/\/*+-])/);
     }
 }
 
