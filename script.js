@@ -15,7 +15,7 @@ function hanldeButtionClick(event) {
     const selectedNum = btn.value;
 
     if (selectedNum === "=") {
-        doCalculation(displayEl.value);
+        displayEl.value = doCalculation(displayEl.value);
         reset = true;
         return;
     }
@@ -46,8 +46,8 @@ function doCalculation(value) {
         }
     });
 
-    displayEl.value = totalValue;
     console.log(value, 'total value', totalValue);
+    return totalValue;
 
     //split the string by symbols and also includes symbols
     //Example: This entry "14+2-1" returns ['14', '+', '2', '-', '1']
