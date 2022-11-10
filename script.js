@@ -46,7 +46,7 @@ function doCalculation(value) {
     });
 
     console.log(value, 'total value', totalValue);
-    return totalValue;
+    return isNaN(totalValue) ? 'Incorrect calculation' : totalValue;
 
     //split the string by symbols and also includes symbols
     //Example: This entry "14+2-1" returns ['14', '+', '2', '-', '1']
