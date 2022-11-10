@@ -9,7 +9,6 @@ buttons.forEach(b => {
     b.addEventListener('click', hanldeButtionClick);
 });
 
-//TODO: multiple operators are done. needs bit of testing
 function hanldeButtionClick(event) {
     const btn = event.target;
     const selectedNum = btn.value;
