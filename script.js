@@ -9,11 +9,22 @@ buttons.forEach(b => {
     b.addEventListener('click', hanldeButtionClick);
 });
 
-function hanldeButtionClick(event) {
-    const btn = event.target;
-    const selectedNum = btn.value;
+//using keyboard for buttons
+document.addEventListener('keydown', (event) => {
+    for (const b of buttons) {
+        if (b.value === event.key) {
+            buttonAction(b.value);
+            break;
+        }
+    }
+})
 
-    if (selectedNum === "=") {
+function hanldeButtionClick(event) {
+    buttonAction(event.target.value);
+}
+
+function buttonAction(selectedText) {
+    if (selectedText === "=") {
         displayEl.value = doCalculation(displayEl.value);
         reset = true;
         return;
@@ -23,7 +34,7 @@ function hanldeButtionClick(event) {
         clear();
     }
 
-    displayEl.value = displayEl.value === '0' ? btn.value : displayEl.value + btn.value;
+    displayEl.value = displayEl.value === '0' ? selectedText : displayEl.value + selectedText;
 }
 
 function doCalculation(value) {
