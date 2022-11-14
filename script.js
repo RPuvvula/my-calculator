@@ -11,8 +11,18 @@ buttons.forEach(b => {
 
 //using keyboard for buttons
 document.addEventListener('keydown', (event) => {
+    let enteredKey = event.key;
+    //handling special cases
+    if (enteredKey.toLowerCase() === "escape") {
+        clear();
+        return;
+    }
+    if (enteredKey.toLowerCase() === "enter") {
+        enteredKey = '=';
+    }
+
     for (const b of buttons) {
-        if (b.value === event.key) {
+        if (b.value === enteredKey) {
             buttonAction(b.value);
             break;
         }
