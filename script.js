@@ -59,14 +59,14 @@ function doCalculation(value) {
         else {
             totalValue = operate((operator === '' ? 1 : totalValue)
                 , convertToNumber(element)
-                , (operator !== '' ? operator : '*'));
+                , (operator === '' ? '*' : operator));
 
             operator = ''; //reset
         }
     });
 
     console.log(value, 'total value', totalValue);
-    return isNaN(totalValue) ? 'Incorrect calculation' : totalValue;
+    return Number.isNaN(totalValue) ? 'Incorrect calculation' : totalValue;
 
     //split the string by symbols and also includes symbols
     //Example: This entry "14+2-1" returns ['14', '+', '2', '-', '1']
@@ -93,7 +93,7 @@ function operate(num1, num2, operator) {
             calculatedValue = num1 / num2;
             break;
         default:
-            calculatedValue = 0; //what to do here?
+            calculatedValue = 0;
             break;
     }
     return roundDecimals(calculatedValue);
