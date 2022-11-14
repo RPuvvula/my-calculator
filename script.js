@@ -9,6 +9,10 @@ buttons.forEach(b => {
     b.addEventListener('click', hanldeButtionClick);
 });
 
+function hanldeButtionClick(event) {
+    buttonAction(event.target.value);
+}
+
 //using keyboard for buttons
 document.addEventListener('keydown', (event) => {
     let enteredKey = event.key;
@@ -28,10 +32,6 @@ document.addEventListener('keydown', (event) => {
         }
     }
 })
-
-function hanldeButtionClick(event) {
-    buttonAction(event.target.value);
-}
 
 function buttonAction(selectedText) {
     if (selectedText === "=") {
