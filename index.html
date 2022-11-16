@@ -34,12 +34,18 @@
         </header>
     </div>
     <section class="container">
-        <div class="row">
+        <div class="row mb-3 text-center">
+            <input class="col-7 themed-grid-col" name="display" id="display-el" value="99999999" aria-label="display"
+                readonly>
+            <label for="display-el" hidden>Display</label>
+            <button class="col-5 themed-grid-col" type="button" id="clear-el">Clear</button>
+        </div>
+        <!-- <div class="row">
             <input class="col s7 m6 right-align" name="display" id="display-el" value="99999999" aria-label="display"
                 readonly>
             <label for="display-el" hidden>Display</label>
             <button class="col s5 m2 waves-effect waves-light btn" type="button" id="clear-el">Clear</button>
-        </div>
+        </div> -->
         <div class="row">
             <button class="col s3 m2 blue-grey btn" type="button" value="7">7</button>
             <button class="col s3 m2 blue-grey btn" type="button" value="8">8</button>
