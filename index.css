@@ -1,28 +1,3 @@
-body {
-    margin: 0;
-}
-
-#display-el {
-    font-size: large;
-}
-
-button {
-    width: auto;
-    height: 3rem;
-    font-size: large;
-}
-
-.numbers {
-    display: grid;
-    grid-template-columns: repeat(3, 10rem);
-}
-
-.container-display {
-    grid-column-start: span 3;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-}
-
-.big-button {
-    grid-column: span 3;
+.container {
+    margin-top: 0.25rem;
 }

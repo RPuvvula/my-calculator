@@ -5,22 +5,44 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="script.js" defer></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Import jQuery before materialize.js And this is required for nav bar side menu-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
-    <!-- <link rel="stylesheet" href="index.css"> -->
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="index.css">
 
     <title>My calculator</title>
 </head>
 
-<body>
+<body class="container">
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a class="brand-logo">Standard Calculator</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="https://github.com/RPuvvula/my-calculator" target="_blank">Git Repo</a></li>
+                    <li><a href="#">To be added</a></li>
+                </ul>
+                <ul id="mobile-demo" class="sidenav">
+                    <li><a href="https://github.com/RPuvvula/my-calculator" target="_blank"
+                            rel="noopener noreferrer">Git Repo</a></li>
+                    <li><a href="#">To be added</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
     <section class="container">
         <div class="row">
-            <input class="col s7 m6" name="display" id="display-el" value="99999999" aria-label="display" readonly>
+            <input class="col s7 m6 right-align" name="display" id="display-el" value="99999999" aria-label="display"
+                readonly>
             <label for="display-el" hidden>Display</label>
-            <button class="col s5 m2 waves-effect waves-light  btn" type="button" id="clear-el">Clear</button>
+            <button class="col s5 m2 waves-effect waves-light btn" type="button" id="clear-el">Clear</button>
         </div>
         <div class="row">
             <button class="col s3 m2 blue-grey btn" type="button" value="7">7</button>

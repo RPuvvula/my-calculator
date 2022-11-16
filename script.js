@@ -1,4 +1,9 @@
 
+// for side bar toggle on mobile screens. Requires jquery
+$(document).ready(function () {
+    $('.sidenav').sidenav();
+});
+
 const displayEl = document.getElementById('display-el');
 
 let reset = false;
