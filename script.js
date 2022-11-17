@@ -1,10 +1,3 @@
-
-// for side bar toggle on mobile screens. Requires jquery
-document.addEventListener('DOMContentLoaded', () => {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems);
-});
-
 const displayEl = document.getElementById('display-el');
 
 let reset = false;
