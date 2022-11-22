@@ -14,8 +14,6 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"
         defer></script>
     <script src="script.js" defer></script>
-    <link rel="stylesheet" href="index.css">
-
     <title>My calculator</title>
 </head>
 
@@ -29,7 +27,12 @@
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="https://github.com/RPuvvula/my-calculator" target="_blank"
                         class="nav-link active" aria-current="page" rel="noopener noreferrer">Git Repo</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#aboutmodal">
+                        About
+                    </a>
+
+                </li>
             </ul>
         </header>
     </div>
@@ -65,6 +68,28 @@
             <button class="col-3 col-md-2 themed-grid-col btn btn-secondary" type="button" value="=">=</button>
         </div>
     </section>
+    <!-- Modal for About page. keep this as last element in the body -->
+    <!-- Vertically centered modal -->
+    <div class="modal modal-dialog modal-dialog-centered fade" id="aboutmodal" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">About</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Standard Calculator developed as part of the OdinProject HTML course. Thanks Odin.</p>
+                    <p>Start your Web development journey here
+                        <a href="https://www.theodinproject.com/" target="_blank" rel="noopener">Odin Project</a>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
